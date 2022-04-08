@@ -1,0 +1,6 @@
+<p>
+    {{list.description}}
+</p>
+<p>This task will be complete in {{list.completion_date|dateCount}} days</p>
+<button class="btn btn-outline-success" (click)= 'itemComplete(true)'>Complete</button>
+<button class="btn btn-danger" (click)= 'itemDelete(true)'>Delete Goal</button>

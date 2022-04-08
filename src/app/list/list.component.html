@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+    <ul *ngFor='let item of items;let i = index'>
+      <div class="card bg-dark ">
+        <li appStrikethrough>{{item.activity}}<br> Due on {{item.completion_date|date|lowercase}}</li>
+        <button class="btn btn-outline-info" (click)='toggleDetails(i)'>Toggle Details</button>
+        <app-list-description *ngIf='item.showDescription' [list]='item' (isComplete)='deleteItem($event,i)'>
+        </app-list-description>
+      </div>
+    </ul>
+  </div>
+  <div class="col-md-8 card bg-dark">
+    <app-list-form (addList)="addNewList($event)" ></app-list-form>
+  </div>
+</div>
+
+
+
+
+<p *ngIf='items.length>8'>The activities are so many</p>
